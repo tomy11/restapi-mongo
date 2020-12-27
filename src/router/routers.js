@@ -1,8 +1,9 @@
 const express = require('express');
+const Auth = require('../models/auth.model');
+const authController = require('../controller/auth.controller');
 const router = express.Router();
 
-router.get('/', (req,res) => {
-    res.json({msg: 'This is CORS-enabled for all origins!'});
-});
+router.get('/', authController.index);
+router.post('/register', authController.register);
 
 module.exports = router;
